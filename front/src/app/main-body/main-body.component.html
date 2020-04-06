@@ -2,4 +2,10 @@
     <h1>alGo & Co.</h1>
     <p>We are the best site to consult when it comes to learning algorithms and data structures.</p>
     <p>Get your free account and start exploring now.</p>
-</div>  
+</div>
+<div class="sections">
+  <div *ngFor="let section of sections">
+    <app-section [current]="section">
+    </app-section>
+  </div>
+</div>

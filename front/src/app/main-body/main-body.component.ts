@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TempService } from '../services/temp.service';
+import { SectionService } from '../services/section.service';
 import { Section } from '../interfaces/section';
 
 @Component({
@@ -11,7 +11,7 @@ export class MainBodyComponent implements OnInit {
 
   sections: Section[];
 
-  constructor(private sectionService: TempService) { }
+  constructor(private sectionService: SectionService) { }
 
   ngOnInit(): void {
     this.getSections();

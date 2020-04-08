@@ -13,4 +13,4 @@ export const SECTIONS: Section[] = [
     description: 'Collection containing implementations of important data structures and their usage.',
     image: ''
   }
-]
+];

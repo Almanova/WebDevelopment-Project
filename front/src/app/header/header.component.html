@@ -1,14 +1,22 @@
 <header>
     <div class="banner">
       <div class="algo-logo">
-        <a href="#">alGo & Co.</a>
+        <a routerLink="">alGo & Co.</a>
       </div>
       <div class="side-buttons">
         <form>
           <input type="text" placeholder="Search">
         </form>
-        <a href="#">Sign in</a>
-        <a href="#">Sign up</a>
+        <div *ngIf="user == undefined; else loggedin">
+          <a routerLink="/login">Sign in</a>
+          <a routerLink="/registration">Sign up</a>
+        </div>
+        <ng-template #loggedin>
+          <a href="#">
+            {{ user.username }}
+          </a>
+          <a (click)="logOut()">Log out</a>
+        </ng-template>
       </div>
     </div>
 </header>

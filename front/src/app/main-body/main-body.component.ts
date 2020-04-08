@@ -11,14 +11,14 @@ export class MainBodyComponent implements OnInit {
 
   sections: Section[];
 
-  constructor(private tempService: TempService) { }
+  constructor(private sectionService: TempService) { }
 
   ngOnInit(): void {
     this.getSections();
   }
 
   getSections(): void {
-    this.tempService.getSections().subscribe(sections => this.sections = sections);
+    this.sectionService.getSections().subscribe(sections => this.sections = sections);
   }
 
 }

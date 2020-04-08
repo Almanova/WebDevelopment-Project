@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: Segoe UI, Helvetica, Arial, sans-serif;
 }
-  
+
 header {
     padding-top: 8px;
     padding-bottom: 8px;
@@ -14,27 +14,27 @@ header {
     height: 72px;
     border-bottom: 1px solid rgb(21, 13, 16);
 }
-  
+
 .algo-logo {
     display: inline-block;
     margin-top: 2px;
     margin-left: 10px;
 }
-  
+
 .algo-logo a {
     color: rgb(187, 180, 172);
     text-decoration: none;
     font-size: 35px;
     font-weight: bold;
 }
-  
+
 .side-buttons {
     display: flex;
     align-items: center;
     margin-top: 10px;
     float: right;
 }
-  
+
 .side-buttons input {
     padding-left: 12px;
     height: 35px;
@@ -43,7 +43,7 @@ header {
     border-radius: 3px;
     border: 0px;
 }
-  
+
 .side-buttons a {
     background-color: rgb(80, 51, 61);
     color: rgb(187, 180, 172);
@@ -59,14 +59,14 @@ header {
     margin-top: 2px;
     margin-left: 15px;
 }
-  
+
 .side-buttons a:hover {
     background-color: rgb(61, 68, 86);
+    cursor: pointer;
 }
-  
+
 ::placeholder {
     font-size: 14px;
     font-weight: 500;
     color: rgb(61, 68, 86);
 }
-  

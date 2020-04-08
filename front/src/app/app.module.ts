@@ -7,6 +7,9 @@ import { HeaderComponent } from './header/header.component';
 import { MainBodyComponent } from './main-body/main-body.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { SectionComponent } from './section/section.component';
+import { FooterComponent } from './footer/footer.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +17,16 @@ import { SectionComponent } from './section/section.component';
     HeaderComponent,
     MainBodyComponent,
     MainPageComponent,
-    SectionComponent
+    SectionComponent,
+    FooterComponent,
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

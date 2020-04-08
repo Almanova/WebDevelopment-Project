@@ -7,6 +7,6 @@ import { USERS } from './mock-data/mock-users';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'front';
+  title = 'alGO & Co';
   currentUser = undefined;
 }

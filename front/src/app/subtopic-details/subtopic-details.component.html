@@ -1,0 +1,18 @@
+<app-header></app-header>
+<div *ngIf="subtopic">
+
+  <h2>{{ subtopic.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ subtopic.id }}</div>
+  <div>
+    <label>Name:
+      <input [(ngModel)]="subtopic.name" placeholder="Name" />
+    </label>
+    <label>Description:
+      <input [(ngModel)]="subtopic.description" placeholder="Description" />
+    </label>
+  </div>
+
+</div>
+
+<button (click)="save()">save</button>
+<app-footer></app-footer>

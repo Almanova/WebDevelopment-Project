@@ -1,0 +1,9 @@
+<div>
+  <a (click)="showSubtopicsComponent()">{{ topic.name }}</a>
+  <button routerLink="/topics/{{ topic.id }}/edit">Edit</button>
+  <button>Delete</button>
+  <div *ngIf="showSubtopics">
+    <app-subtopics [topic]="topic">
+    </app-subtopics>
+  </div>
+</div>

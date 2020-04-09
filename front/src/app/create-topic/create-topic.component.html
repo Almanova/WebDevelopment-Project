@@ -1,0 +1,9 @@
+<div>
+  <label>Name:
+    <input #topicName />
+  </label>
+  <label>Dame:
+    <input #topicDescription />
+  </label>
+</div>
+<button (click)="add('topicName.value', 'topicDescription.value')">Add</button>

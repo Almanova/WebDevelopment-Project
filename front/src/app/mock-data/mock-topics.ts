@@ -38,21 +38,21 @@ export const TOPICS: Topic[] =
   [
     {
       id: 1,
-      sectionId: 1,
+      sectionId: 2,
       name: 'suka',
       description: '',
       subtopics: [1]
     },
     {
       id: 2,
-      sectionId: 1,
+      sectionId: 2,
       name: 'blyat',
       description: '',
       subtopics: [2, 3]
     },
     {
       id: 3,
-      sectionId: 1,
+      sectionId: 2,
       name: 'shshs',
       description: '',
       subtopics: [3]

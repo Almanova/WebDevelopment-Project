@@ -11,12 +11,28 @@
   width: 100%;
   background-image: linear-gradient(rgba(144, 148, 147, 1), rgba(144, 148, 147, 0.5));
   background-size: cover;
+  /*display: flex;*/
+  /*justify-content: space-between;*/
+  /*margin-right: auto;*/
+  /*margin-left: auto;*/
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.image {
+  width: 200px;
+  padding-left: 220px;
+  padding-top: 40px;
 }
 
 .block {
   margin-top: 20px;
   margin-right: 160px;
-  float: right;
   width: 550px;
   height: 250px;
   background-color: rgb(39, 29, 40);
@@ -53,13 +69,13 @@ button{
   font-weight: bold;
   font-size: 18px;
   cursor: pointer;
-  margin: 18px 30px;
+  margin: 8px 10px;
   background: rgb(21, 13, 16);
 }
 
 span{
   display: block;
-  padding: 20px 80px;
+  padding: 15px 80px;
 }
 
 button::before, button::after{
@@ -107,6 +123,10 @@ button span::before{
   left: 0;
   bottom: 0;
   transition-duration: 0.4s;
+}
+
+.buttons {
+  display: flex;
 }
 
 

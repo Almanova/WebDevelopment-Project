@@ -1,5 +1,5 @@
 .main-area {
-  height: 600px;
+  height: auto;
   width: 100%;
   background: rgb(187, 180, 172);
   background: radial-gradient(circle, rgba(187, 180, 172, 1) 0%, rgba(79, 73, 75, 1) 100%);
@@ -10,6 +10,7 @@
   margin-right: auto;
   margin-left: auto;
   width: 70%;
+  height: auto;
   background-color: rgb(39, 29, 40);
   border: 1px solid rgb(21, 13, 16);
   border-radius: 1px;
@@ -86,4 +87,16 @@ button span::before{
   left: 0;
   bottom: 0;
   transition-duration: 0.4s;
+}
+
+h1 {
+  color: rgb(187, 180, 172);
+  font-size: 45px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.topics {
+  padding-top: 15px;
+  margin-bottom: 70px;
 }

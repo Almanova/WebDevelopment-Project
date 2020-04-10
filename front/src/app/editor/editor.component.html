@@ -7,9 +7,11 @@
       <app-create-topic [section]="section">
       </app-create-topic>
     </div>
-    <div *ngFor="let topic of topics">
-      <app-topic [topicId]="topic.id">
-      </app-topic>
+    <div class="topics">
+      <div *ngFor="let topic of topics">
+        <app-topic [topicId]="topic.id">
+        </app-topic>
+      </div>
     </div>
   </div>
 </div>

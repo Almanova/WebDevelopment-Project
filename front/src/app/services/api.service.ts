@@ -4,6 +4,7 @@ import { Topic } from '../interfaces/topic';
 import { Section } from '../interfaces/section';
 import { Subtopic } from '../interfaces/subtopic';
 import { Observable, of } from 'rxjs';
+import { ALL_TOPICS } from '../mock-data/mock-topics';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class ApiService {
   private topicsUrl = 'api/topics';
   private sectionsUrl = 'api/sections';
   private subtopicsUrl = 'api/subtopics';
+  topics = ALL_TOPICS;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -59,5 +61,10 @@ export class ApiService {
 
   addTopic(topic: Topic): Observable<Topic> {
     return this.http.post<Topic>(this.topicsUrl, topic, this.httpOptions);
+  }
+
+  getTopicsBySectionIdOrd(sectionId): Observable<Topic[]> {
+    const neededTopics = this.topics.filter(topic => topic.sectionId === sectionId);
+    return of(neededTopics);
   }
 }

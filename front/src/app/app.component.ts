@@ -8,5 +8,5 @@ import { USERS } from './mock-data/mock-users';
 })
 export class AppComponent {
   title = 'front';
-  currentUser = USERS[0];
+  currentUser = undefined;
 }

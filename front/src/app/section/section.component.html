@@ -1,5 +1,9 @@
 <div class="outer">
   <div class="inner">
+    <div class="flex">
+    <div class="image">
+      <img src="{{ current.image }}" height=200>
+    </div>
     <div class="block">
       <h2>
         {{ current.name }}
@@ -7,7 +11,11 @@
       <p>
         {{ current.description }}
       </p>
-      <button onclick="location.href='./datastructures';"><span>See topics</span></button>
+      <div class="buttons">
+        <button onclick="location.href='./datastructures';"><span>See topics</span></button>
+        <button routerLink="/sections/{{current.id}}/editor"><span>Editor</span></button>
+      </div>
+    </div>
     </div>
   </div>
 </div>

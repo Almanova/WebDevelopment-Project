@@ -1,12 +1,16 @@
 <div>
-  <button (click)="showCreateComponent()"><span>Add new subtopic</span></button>
+  <button (click)="showCreateComponent()" class="add-sub"><span>Add new subtopic</span></button>
   <div *ngIf="showComponent">
     <app-create-subtopic>
     </app-create-subtopic>
   </div>
-  <div *ngFor="let subtopic of subtopics">
-    <a>{{ subtopic.name }}</a>
-    <button routerLink="/subtopics/{{ subtopic.id }}/edit">Edit</button>
-    <button>Delete</button>
+  <div *ngFor="let subtopic of subtopics" class="whole">
+    <div class="wrap">
+      <a>{{ subtopic.name }}</a>
+      <div class="buttons">
+        <button routerLink="/subtopics/{{ subtopic.id }}/edit"><span>Edit</span></button>
+        <button><span>Delete</span></button>
+      </div>
+    </div>
   </div>
 </div>

@@ -27,7 +27,7 @@ export class TopicDetailsComponent implements OnInit {
   }
 
   save(): void {
-    this.apiService.updateTopic(this.topic)
+    this.apiService.updateTopic(this.topic, this.topic.id)
       .subscribe(() => this.goBack());
   }
 

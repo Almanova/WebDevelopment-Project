@@ -9,19 +9,12 @@ import { ApiService } from '../services/api.service';
 })
 export class TopicComponent implements OnInit {
 
-  @Input() topicId: number;
-  topic: Topic;
+  @Input() topic: Topic;
   showSubtopics = false;
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.getTopicByTopicId();
-  }
-
-  getTopicByTopicId(): void {
-    this.apiService.getTopicByTopicId(this.topicId)
-      .subscribe(topic => this.topic = topic);
   }
 
   showSubtopicsComponent(): void {
@@ -31,5 +24,12 @@ export class TopicComponent implements OnInit {
     else {
       this.showSubtopics = true;
     }
+  }
+  
+  delete(topicId): void {
+    this.apiService.deleteTopic(topicId)
+      .subscribe(res => {
+        window.location.reload();
+      });
   }
 }

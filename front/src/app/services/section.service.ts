@@ -8,11 +8,9 @@ import { Observable, of } from 'rxjs';
 })
 export class SectionService {
 
-  private sectionsUrl = 'api/sections';
-
   constructor(private http: HttpClient) { }
 
   getSections(): Observable<Section[]> {
-    return this.http.get<Section[]>(this.sectionsUrl);
+    return this.http.get<Section[]>('http://localhost:8000/api/sections/');
   }
 }

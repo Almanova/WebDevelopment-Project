@@ -4,12 +4,12 @@
     <h1>{{ section.name }}</h1>
     <button class="add-topic-btn" (click)="showCreateComponent()"><span>Add new topic</span></button>
     <div *ngIf="showComponent">
-      <app-create-topic [section]="section">
+      <app-create-topic>
       </app-create-topic>
     </div>
     <div class="topics">
       <div *ngFor="let topic of topics">
-        <app-topic [topicId]="topic.id">
+        <app-topic [topic]="topic">
         </app-topic>
       </div>
     </div>

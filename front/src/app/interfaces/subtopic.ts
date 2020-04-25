@@ -1,6 +1,6 @@
 export interface Subtopic {
   id: number;
-  topicId: number;
+  topic: number;
   name: string;
   description: string;
   code: string;

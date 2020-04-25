@@ -24,10 +24,11 @@ export class SubtopicDetailsComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('subtopicId');
     this.apiService.getSubtopicBySubtopicId(id)
       .subscribe(subtopic => this.subtopic = subtopic);
+    this.subtopic.code.replace('\n', '<br>');
   }
 
   save(): void {
-    this.apiService.updateSubtopic(this.subtopic)
+    this.apiService.updateSubtopic(this.subtopic, this.subtopic.id)
       .subscribe(() => this.goBack());
   }
 

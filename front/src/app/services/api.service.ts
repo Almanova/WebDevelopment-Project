@@ -11,10 +11,7 @@ import { ALL_TOPICS } from '../mock-data/mock-topics';
 })
 export class ApiService {
 
-  private topicsUrl = 'api/topics';
-  private sectionsUrl = 'api/sections';
-  private subtopicsUrl = 'api/subtopics';
-  topics = ALL_TOPICS;
+  baseUrl = 'http://localhost:8000/api';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -22,49 +19,58 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getTopics(): Observable<Topic[]> {
-    return this.http.get<Topic[]>(this.topicsUrl);
-  }
-
   getTopicsBySectionId(sectionId): Observable<Topic[]> {
-    const url = `${this.topicsUrl}/?sectionId=${sectionId}`;
+    const url = `${this.baseUrl}/sections/${sectionId}/topics/`;
     return this.http.get<Topic[]>(url);
   }
 
   getSectionBySectionId(sectionId): Observable<Section> {
-    const url = `${this.sectionsUrl}/${sectionId}`;
+    const url = `${this.baseUrl}/sections/${sectionId}/`;
     return this.http.get<Section>(url);
   }
 
   getTopicByTopicId(topicId): Observable<Topic> {
-    const url = `${this.topicsUrl}/${topicId}`;
+    const url = `${this.baseUrl}/topics/${topicId}/edit/`;
     return this.http.get<Topic>(url);
   }
 
   getSubtopicsByTopicId(topicId): Observable<Subtopic[]> {
-    const url = `${this.subtopicsUrl}/?topicId=${topicId}`;
+    const url = `${this.baseUrl}/topics/${topicId}/subtopics/`;
     return this.http.get<Subtopic[]>(url);
   }
 
   getSubtopicBySubtopicId(subtopicId): Observable<Subtopic> {
-    const url = `${this.subtopicsUrl}/${subtopicId}`;
+    const url = `${this.baseUrl}/subtopics/${subtopicId}/edit/`;
     return this.http.get<Subtopic>(url);
   }
 
-  updateSubtopic(subtopic: Subtopic): Observable<any> {
-    return this.http.put(this.subtopicsUrl, subtopic, this.httpOptions);
+  updateSubtopic(subtopic: Subtopic, subtopicId): Observable<Subtopic> {
+    const url = `${this.baseUrl}/subtopics/${subtopicId}/edit/`;
+    return this.http.put<Subtopic>(url, subtopic, this.httpOptions);
   }
 
-  updateTopic(topic: Topic): Observable<any> {
-    return this.http.put(this.topicsUrl, topic, this.httpOptions);
+  updateTopic(topic: Topic, topicId): Observable<Topic> {
+    const url = `${this.baseUrl}/topics/${topicId}/edit/`;
+    return this.http.put<Topic>(url, topic, this.httpOptions);
   }
 
-  addTopic(topic: Topic): Observable<Topic> {
-    return this.http.post<Topic>(this.topicsUrl, topic, this.httpOptions);
+  addTopic(topic: Topic, sectionId): Observable<Topic> {
+    const url = `${this.baseUrl}/sections/${sectionId}/topics/`;
+    return this.http.post<Topic>(url, topic, this.httpOptions);
   }
 
-  getTopicsBySectionIdOrd(sectionId): Observable<Topic[]> {
-    const neededTopics = this.topics.filter(topic => topic.sectionId === sectionId);
-    return of(neededTopics);
+  addSubtopic(subtopic: Subtopic, topicId): Observable<Subtopic> {
+    const url = `${this.baseUrl}/topics/${topicId}/subtopics/`;
+    return this.http.post<Subtopic>(url, subtopic, this.httpOptions);
+  }
+
+  deleteSubtopic(subtopicId: number): Observable<any> {
+    const url = `${this.baseUrl}/subtopics/${subtopicId}/edit/`;
+    return this.http.delete<any>(url, this.httpOptions);
+  }
+
+  deleteTopic(topicId: number): Observable<any> {
+    const url = `${this.baseUrl}/topics/${topicId}/edit/`;
+    return this.http.delete<any>(url, this.httpOptions);
   }
 }

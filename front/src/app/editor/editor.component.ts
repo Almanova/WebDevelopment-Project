@@ -40,5 +40,5 @@ export class EditorComponent implements OnInit {
     else {
       this.showComponent = true;
     }
-  };
+  }
 }

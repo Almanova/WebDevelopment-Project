@@ -12,7 +12,7 @@
         <h4>Description:</h4>
         <input [(ngModel)]="subtopic.description" placeholder="Description" />
         <h4>Code:</h4>
-        <p>{{ subtopic.code }}</p>
+        <p [innerHTML]="subtopic.code"></p>
         <input [(ngModel)]="subtopic.code" placeholder="Code" />
       </div>
       <button (click)="save()"><span>Save</span></button>

@@ -32,4 +32,10 @@ export class SubtopicsComponent implements OnInit {
       this.showComponent = true;
     }
   }
+
+  delete(subtopicId): void {
+    this.apiService.deleteSubtopic(subtopicId).subscribe(res => {
+      window.location.reload();
+    });
+  }
 }

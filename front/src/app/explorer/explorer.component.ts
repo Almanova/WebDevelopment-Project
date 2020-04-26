@@ -3,6 +3,8 @@ import {SubtopicService} from '../services/subtopic.service';
 import {TopicService} from '../services/topic.service';
 import { Subtopic } from '../interfaces/subtopic';
 import { Topic } from '../interfaces/topic';
+import { ApiService } from '../services/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -11,30 +13,34 @@ import { Topic } from '../interfaces/topic';
   styleUrls: ['./explorer.component.css']
 })
 export class ExplorerComponent implements OnInit {
-  constructor(private subtopicService: SubtopicService, private topicService: TopicService) { }
+  constructor(private subtopicService: SubtopicService,
+              private topicService: TopicService,
+              private route: ActivatedRoute,
+              private apiService: ApiService) { }
 
   selected=[];
   tabs = [];
   last_active=[];
   active = [];
   isActive = false;
-  topics : Topic[];
-  subtopics : Subtopic[];
+  topics: Topic[];
+  subtopics: Subtopic[];
+  sectionId: number;
   ngOnInit(): void {
+    this.sectionId = +this.route.snapshot.paramMap.get('sectionId');
     this.getData();
-    console.log(this.subtopics)
-
+    console.log(this.subtopics);
   }
 
   getData(): void {
-    this.subtopicService.getSubtopics().subscribe(subtopic => this.subtopics = subtopic);
-    this.topicService.getTopics().subscribe(topic => this.topics = topic);
+    this.apiService.getSubtopics().subscribe(subtopic => this.subtopics = subtopic);
+    this.apiService.getTopicsBySectionId(this.sectionId).subscribe(topic => this.topics = topic);
   }
 
 
 
   public findTopic(id){
-    return this.subtopics.filter(s => s.id == id);
+    return this.subtopics.filter(s => s.topic == id);
   }
   public isSelected(id){
     return this.selected.some(x => x === id)

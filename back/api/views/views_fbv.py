@@ -58,3 +58,11 @@ def subtopic_details(request, subtopic_id):
     elif request.method == 'DELETE':
         subtopic.delete()
         return Response({'deleted': True})
+
+
+@api_view(['GET'])
+def subtopics_list(request):
+    if request.method == 'GET':
+        topics = Subtopic.objects.all()
+        serializer = SubtopicSerializer(topics, many=True)
+        return Response(serializer.data)

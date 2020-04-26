@@ -91,4 +91,9 @@ export class ApiService {
     const url = `${this.baseUrl}/users/${username}/`;
     return this.http.get<User>(url);
   }
+
+  getSubtopics(): Observable<Subtopic[]> {
+    const url = `${this.baseUrl}/subtopics/`;
+    return this.http.get<Subtopic[]>(url);
+  }
 }

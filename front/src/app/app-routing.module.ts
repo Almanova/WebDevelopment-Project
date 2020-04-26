@@ -16,8 +16,7 @@ const routes: Routes = [
   { path: 'sections/:sectionId/editor', component: EditorComponent },
   { path: 'topics/:topicId/edit', component: TopicDetailsComponent },
   { path: 'subtopics/:subtopicId/edit', component: SubtopicDetailsComponent },
-  { path: 'datastructures', component: ExplorerComponent },
-  { path: 'algorithms', component: ExplorerComponent }
+  { path: 'sections/:sectionId/explorer', component: ExplorerComponent },
 ];
 
 @NgModule({

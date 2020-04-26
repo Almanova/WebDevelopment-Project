@@ -129,4 +129,8 @@ button span::before{
   display: flex;
 }
 
+.singlebutton span {
+  padding: 40px 80px;
+}
+
 

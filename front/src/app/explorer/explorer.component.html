@@ -10,8 +10,8 @@
       <ng-template [ngIf]="isSelected(topic.id)" [ngIfElse]="closed">
         <img src="../assets/opened.png" (click)="onClick(topic.id)">
         <div class = "nothing" (click) = "addTab(topic.id, 0)" >{{topic.name}}</div>
-        <div class = "subtopics" *ngFor="let subtopic_id of topic.subtopics">
-          <div class = "nothing" (click) = "addTab(subtopic_id, 1)" >{{findTopic(subtopic_id)[0].name}}</div>
+        <div class = "subtopics" *ngFor="let subtopic of findTopic(topic.name)">
+          <div class = "nothing" (click) = "addTab(subtopic.id, 1)" >{{subtopic.name}}</div>
         </div>
       </ng-template>
 

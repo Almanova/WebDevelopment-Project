@@ -12,5 +12,6 @@ urlpatterns = [
     path('topics/<int:topic_id>/edit/', views_cbv.TopicDetailsAPIView.as_view()),
     path('subtopics/<int:subtopic_id>/edit/', views_fbv.subtopic_details),
     path('signup/', views_auth.sign_up),
-    path('users/<str:username>/', views_auth.get_user)
+    path('users/<str:username>/', views_auth.get_user),
+    path('subtopics/', views_fbv.subtopics_list)
 ]

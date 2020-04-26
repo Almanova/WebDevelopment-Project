@@ -3,14 +3,12 @@
   <h3>Explorer</h3>
 
   <div class ="main">
-    <p>Data Structures</p>
-
     <div class = "topics" *ngFor="let topic of topics" >
       <!-- <img *ngIf="isSelected(topic.id)" src="../assets/opened.png"> -->
       <ng-template [ngIf]="isSelected(topic.id)" [ngIfElse]="closed">
         <img src="../assets/opened.png" (click)="onClick(topic.id)">
         <div class = "nothing" (click) = "addTab(topic.id, 0)" >{{topic.name}}</div>
-        <div class = "subtopics" *ngFor="let subtopic of findTopic(topic.name)">
+        <div class = "subtopics" *ngFor="let subtopic of findTopic(topic.id)">
           <div class = "nothing" (click) = "addTab(subtopic.id, 1)" >{{subtopic.name}}</div>
         </div>
       </ng-template>

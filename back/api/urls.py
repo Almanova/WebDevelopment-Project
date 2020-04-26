@@ -13,5 +13,6 @@ urlpatterns = [
     path('subtopics/<int:subtopic_id>/edit/', views_fbv.subtopic_details),
     path('signup/', views_auth.sign_up),
     path('users/<str:username>/', views_auth.get_user),
-    path('subtopics/', views_fbv.subtopics_list)
+    path('subtopics/', views_fbv.subtopics_list),
+    path('manager/', views_fbv.topics_count)
 ]

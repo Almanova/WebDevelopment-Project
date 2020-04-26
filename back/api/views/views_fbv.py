@@ -66,3 +66,11 @@ def subtopics_list(request):
         topics = Subtopic.objects.all()
         serializer = SubtopicSerializer(topics, many=True)
         return Response(serializer.data)
+
+
+@api_view(['GET'])
+def topics_count(request):
+    if request.method == 'GET':
+        topics = Topic.all_topics.all()
+        serializer = TopicSerializer(topics, many=True)
+        return Response(serializer.data)

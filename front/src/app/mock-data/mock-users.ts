@@ -4,19 +4,19 @@ export const USERS: User[] = [
   {
     id: 1,
     email: 'dr.almanovamadina@gmail.com',
-    password: 'frontnotmyend',
+    first_name: 'Madina',
+    last_name: 'Almanova',
     username: 'MaddieKan',
-    firstname: 'Madina',
-    lastname: 'Almanova',
-    type: 'admin'
+    password: 'frontnotmyend',
+    is_staff: 1
   },
   {
     id: 2,
     email: 'guyfromcf@gmail.com',
-    password: 'frontmyend',
+    first_name: 'Vasya',
+    last_name: 'Pupkin',
     username: 'SportProger',
-    firstname: 'Vasya',
-    lastname: 'Pupkin',
-    type: 'reader'
+    password: 'frontmyend',
+    is_staff: 2
   }
 ]

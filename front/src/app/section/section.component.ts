@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Section } from '../interfaces/section';
+import { AppComponent } from '../app.component';
+import { User } from '../interfaces/user';
 
 @Component({
   selector: 'app-section',
@@ -9,10 +11,12 @@ import { Section } from '../interfaces/section';
 export class SectionComponent implements OnInit {
 
   @Input() current: Section;
+  user: User;
 
-  constructor() { }
+  constructor(private mainapp: AppComponent) { }
 
   ngOnInit(): void {
+    this.user = this.mainapp.currentUser;
   }
 
 }

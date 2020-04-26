@@ -20,6 +20,8 @@ import { SubtopicDetailsComponent } from './subtopic-details/subtopic-details.co
 import { CreateTopicComponent } from './create-topic/create-topic.component';
 import { CreateSubtopicComponent } from './create-subtopic/create-subtopic.component';
 import { ExplorerComponent } from './explorer/explorer.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -43,10 +45,16 @@ import { ExplorerComponent } from './explorer/explorer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
+    FormsModule,
   ],
-  providers: [AppComponent],
+  providers: [AppComponent,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

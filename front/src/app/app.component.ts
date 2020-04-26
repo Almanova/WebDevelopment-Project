@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { USERS } from './mock-data/mock-users';
+import { Component, OnInit } from '@angular/core';
+import { User } from './interfaces/user';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,15 @@ import { USERS } from './mock-data/mock-users';
 })
 export class AppComponent {
   title = 'front';
-  currentUser = USERS[0];
+  currentUser: User;
+  logged = false;
+  // constructor(private apiService: ApiService) {}
+  //
+  // ngOnInit(): void {
+  //   // if (localStorage.getItem('username') != null) {
+  //   //   const user: string = localStorage.getItem('username');
+  //   //   this.apiService.getUser(user)
+  //   //     .subscribe(us => this.currentUser = us);
+  //   // }
+  // }
 }

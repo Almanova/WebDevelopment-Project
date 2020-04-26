@@ -11,10 +11,13 @@
       <p>
         {{ current.description }}
       </p>
-      <div class="buttons">
+      <div *ngIf="user.is_staff == 1; else regular" class="buttons">
         <button onclick="location.href='./datastructures';"><span>See topics</span></button>
         <button routerLink="/sections/{{current.id}}/editor"><span>Editor</span></button>
       </div>
+      <ng-template #regular>
+        <button>HEEEEEY</button>
+      </ng-template>
     </div>
     </div>
   </div>

@@ -4,7 +4,8 @@ import { Topic } from '../interfaces/topic';
 import { Section } from '../interfaces/section';
 import { Subtopic } from '../interfaces/subtopic';
 import { Observable, of } from 'rxjs';
-import { ALL_TOPICS } from '../mock-data/mock-topics';
+import { User } from '../interfaces/user';
+import { LoginResponse } from '../interfaces/loginresponse';
 
 @Injectable({
   providedIn: 'root'
@@ -72,5 +73,22 @@ export class ApiService {
   deleteTopic(topicId: number): Observable<any> {
     const url = `${this.baseUrl}/topics/${topicId}/edit/`;
     return this.http.delete<any>(url, this.httpOptions);
+  }
+
+  addUser(user: User): Observable<User> {
+    const url = `${this.baseUrl}/signup/`;
+    return this.http.post<User>(url, user, this.httpOptions);
+  }
+
+  login(username, password): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(`${this.baseUrl}/login/`, {
+      username,
+      password
+    });
+  }
+
+  getUser(username): Observable<User> {
+    const url = `${this.baseUrl}/users/${username}/`;
+    return this.http.get<User>(url);
   }
 }
